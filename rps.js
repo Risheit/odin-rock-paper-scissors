@@ -4,6 +4,16 @@ const PLAYABLES = {
     scissors: "SCISSORS"
 };
 
+function isTie(playerSelection, computerSelection) {
+    playerSelection.toUpperCase() === computerSelection.toUpperCase();
+}
+
+function isLoss(playerSelection, computerSelection) {
+    return (playerSelection.toUpperCase() === PLAYABLES.rock && computerSelection.toUpperCase() === PLAYABLES.paper)
+        || (playerSelection.toUpperCase() === PLAYABLES.paper && computerSelection.toUpperCase() === PLAYABLES.scissors)
+        || (playerSelection.toUpperCase() === PLAYABLES.scissors && computerSelection.toUpperCase() === PLAYABLES.rock);
+}
+
 function playRound(playerSelection, computerSelection) {
     let result;
     let context;
