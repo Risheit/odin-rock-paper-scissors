@@ -4,6 +4,12 @@ const PLAYABLES = {
     scissors: "SCISSORS"
 };
 
+const OUTCOMES = {
+    tie: "Tie",
+    lose: "Lose",
+    win: "Won"
+}
+
 function isTie(playerSelection, computerSelection) {
     return playerSelection.toUpperCase() === computerSelection.toUpperCase();
 }
@@ -18,21 +24,19 @@ function isLoss(playerSelection, computerSelection) {
 }
 
 function playRound(playerSelection, computerSelection) {
-    let result;
-    let context;
+    return isTie(playerSelection, computerSelection)
+        ? OUTCOMES.tie
+        : isLoss(playerSelection, computerSelection)
+            ? OUTCOMES.lose
+            : OUTCOMES.win;
+}
 
-    if (isTie(playerSelection, computerSelection)) {
-        result = "Tie";
-        context = "ties with"
-    }
-    else if (isLoss(playerSelection, computerSelection)) {
-        result = "Lose";
-        context = "loses to"
-    }
-    else {
-        result = "Won";
-        context = "beats"
-    }
+function getVictoryString(result, playerSelection, computerSelection) {
+    let context = (result === OUTCOMES.tie)
+        ? "ties with"
+        : (result === OUTCOMES.lose)
+            ? "loses to"
+            : "beats";
 
     return "You " + result + "! " + playerSelection + " " + context + " " +
         computerSelection;
@@ -59,10 +63,13 @@ function getPlayerChoice() {
 }
 
 function game() {
-    const NUMBER_ROUNDS = 5;
-    for (let i = 0; i < NUMBER_ROUNDS; i++) {
+    let playerWins = 0, computerWins = 0;
+
+    while (playerWins < 5 && computerWins < 5) {
         let playerSelection = getPlayerChoice();
         let computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
+        console.log(getVictoryString(
+            playRound(playerSelection, computerSelection)
+        ));
     }
 }
