@@ -9,9 +9,12 @@ function isTie(playerSelection, computerSelection) {
 }
 
 function isLoss(playerSelection, computerSelection) {
-    return (playerSelection.toUpperCase() === PLAYABLES.rock && computerSelection.toUpperCase() === PLAYABLES.paper)
-        || (playerSelection.toUpperCase() === PLAYABLES.paper && computerSelection.toUpperCase() === PLAYABLES.scissors)
-        || (playerSelection.toUpperCase() === PLAYABLES.scissors && computerSelection.toUpperCase() === PLAYABLES.rock);
+    return (playerSelection.toUpperCase() === PLAYABLES.rock &&
+            computerSelection.toUpperCase() === PLAYABLES.paper)
+        || (playerSelection.toUpperCase() === PLAYABLES.paper &&
+            computerSelection.toUpperCase() === PLAYABLES.scissors)
+        || (playerSelection.toUpperCase() === PLAYABLES.scissors &&
+            computerSelection.toUpperCase() === PLAYABLES.rock);
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -31,7 +34,8 @@ function playRound(playerSelection, computerSelection) {
         context = "beats"
     }
 
-    return "You " + result + "! " + playerSelection + " " + context + " " + computerSelection;
+    return "You " + result + "! " + playerSelection + " " + context + " " +
+        computerSelection;
 }
 
 function getComputerChoice() {
@@ -48,7 +52,8 @@ function getComputerChoice() {
 function getPlayerChoice() {
     let choice = "";
     do {
-        choice = prompt("What do you want to play? Rock/Paper/Scissors").toUpperCase();
+        choice = prompt("What do you want to play? Rock/Paper/Scissors")
+                    .toUpperCase();
     } while (!(Object.values(PLAYABLES).includes(choice)));
     return choice;
 }
