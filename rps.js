@@ -34,6 +34,25 @@ function playRound(playerSelection, computerSelection) {
     return "You " + result + "! " + playerSelection + " " + context + " " + computerSelection;
 }
 
+function getComputerChoice() {
+    switch (Math.floor(Math.random() * 3)) {
+        case 0:
+            return PLAYABLES.rock;
+        case 1:
+            return PLAYABLES.paper;
+        default:
+            return PLAYABLES.scissors;
+    }
+}
+
+function getPlayerChoice() {
+    do {
+        let choice = prompt("What do you want to play? Rock/Paper/Scissors");
+        choice = choice.toUpperCase();
+    } while (!(PLAYABLES.values().includes(choice)));
+    return choice;
+}
+
 function game() {
     const NUMBER_ROUNDS = 5;
     for (let i = 0; i < NUMBER_ROUNDS; i++) {
