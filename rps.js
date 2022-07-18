@@ -5,7 +5,7 @@ const PLAYABLES = {
 };
 
 function isTie(playerSelection, computerSelection) {
-    playerSelection.toUpperCase() === computerSelection.toUpperCase();
+    return playerSelection.toUpperCase() === computerSelection.toUpperCase();
 }
 
 function isLoss(playerSelection, computerSelection) {
@@ -46,10 +46,10 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
+    let choice = "";
     do {
-        let choice = prompt("What do you want to play? Rock/Paper/Scissors");
-        choice = choice.toUpperCase();
-    } while (!(PLAYABLES.values().includes(choice)));
+        choice = prompt("What do you want to play? Rock/Paper/Scissors").toUpperCase();
+    } while (!(Object.values(PLAYABLES).includes(choice)));
     return choice;
 }
 
