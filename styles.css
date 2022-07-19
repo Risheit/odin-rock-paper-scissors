@@ -39,7 +39,7 @@ img.card {
 }
 
 /* Pre/Post Game Overlay */
-.overlay {
+#overlay {
     position: fixed;
     min-width: 100%;
     min-height: 100%;
@@ -53,7 +53,7 @@ img.card {
     background-color: rgba(53, 56, 75, 0.8);
 }
 
-.overlay button {
+#overlay button {
     width: fit-content;
     height: fit-content;
     padding: 1vw 3vw;
