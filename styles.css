@@ -10,3 +10,13 @@
 body {
     margin: 0;
 }
+
+.selection-zone {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-1);
+    height: 100vh;
+    width: fit-content;
+    margin: 0;
+    padding: 4vw;
+}
