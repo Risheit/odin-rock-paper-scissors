@@ -16,14 +16,27 @@ html {
 
 body {
     display: flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: var(--color-2);
 }
 
 img.card {
     aspect-ratio: 1 / 1;
     background-color: var(--color-3);
-    padding: 1vw 1vw 1vw 0;
+    padding: 1vw;
     border-radius: 10%;
+    min-width: 9vw;
+    width: 11vw;
+}
+
+.win-text {
+    color: var(--color-2);
+    margin: 0;
+    padding: 0;
+    flex: 0 1 0;
+    height: fit-content;
+    width: fit-content;
+    font-size: 4vw;
 }
 
 /* Selection Zone */
@@ -49,12 +62,26 @@ img.card {
 
 .selection-zone img.card {
     flex: auto;
-    min-width: 9vw;
-    width: 11vw;
+    padding: 1vw 1vw 1vw 0;
 }
 
 /* Play Zone */
 
 .play-zone {
     flex: 5 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7vmin;
+}
+
+.play-zone img {
+    background-color: #5E6070;
+    flex: 0 1 auto;
+}
+
+.play-zone figcaption {
+    color: var(--color-3);
+    text-align: center;
 }
