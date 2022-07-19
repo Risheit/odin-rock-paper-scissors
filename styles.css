@@ -16,6 +16,7 @@ html {
 
 body {
     display: flex;
+    background-color: var(--color-2);
 }
 
 img.card {
@@ -53,3 +54,7 @@ img.card {
 }
 
 /* Play Zone */
+
+.play-zone {
+    flex: 5 0 0;
+}
