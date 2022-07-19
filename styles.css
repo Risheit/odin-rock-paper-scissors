@@ -25,7 +25,7 @@ img.card {
     background-color: var(--color-3);
     padding: 1vw;
     border-radius: 10%;
-    min-width: 9vw;
+    min-width: 9em;
     width: 11vw;
 }
 
@@ -42,7 +42,7 @@ img.card {
 /* Selection Zone */
 
 .selection-zone {
-    flex: 1 0 0;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,7 +61,7 @@ img.card {
 }
 
 .selection-zone img.card {
-    flex: auto;
+    flex: 1 0 0;
     padding: 1vw 1vw 1vw 0;
 }
 
