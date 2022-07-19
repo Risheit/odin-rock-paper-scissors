@@ -62,14 +62,17 @@ function getPlayerChoice() {
     return choice;
 }
 
-function game() {
-    let playerWins = 0, computerWins = 0;
+// function game() {
+//     let playerWins = 0, computerWins = 0;
 
-    while (playerWins < 5 && computerWins < 5) {
-        let playerSelection = getPlayerChoice();
-        let computerSelection = getComputerChoice();
-        console.log(getVictoryString(
-            playRound(playerSelection, computerSelection)
-        ));
-    }
-}
+//     while (playerWins < 5 && computerWins < 5) {
+//         let playerSelection = getPlayerChoice();
+//         let computerSelection = getComputerChoice();
+//         console.log(getVictoryString(
+//             playRound(playerSelection, computerSelection)
+//         ));
+//     }
+// }
+
+
+button = document.querySelector<button>(".start-game");
