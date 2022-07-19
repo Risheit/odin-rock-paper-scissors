@@ -4,7 +4,6 @@
     --color-1: #5E6070;
     --color-2: #648CF6;
     --color-3: #F7F8FF;
-    --color-4: #72789A;
 }
 
 body,
@@ -37,6 +36,35 @@ img.card {
     height: fit-content;
     width: fit-content;
     font-size: 4vw;
+}
+
+/* Pre/Post Game Overlay */
+.overlay {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(53, 56, 75, 0.8);
+}
+
+.overlay button {
+    width: fit-content;
+    height: fit-content;
+    padding: 1vw 3vw;
+
+    border: 5px solid var(--color-3);
+    border-radius: 20px;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--color-3);
+    background-color: var(--color-2);
+    font-size: 5vh;
 }
 
 /* Selection Zone */
