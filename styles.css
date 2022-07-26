@@ -1,0 +1,124 @@
+/* Generals */
+
+:root {
+    --color-1: #5E6070;
+    --color-2: #648CF6;
+    --color-3: #F7F8FF;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: var(--color-2);
+}
+
+img.card {
+    aspect-ratio: 1 / 1;
+    background-color: var(--color-3);
+    padding: 1vw;
+    border-radius: 10%;
+    min-width: 9em;
+    width: 11vw;
+}
+
+.win-text {
+    color: var(--color-2);
+    margin: 0;
+    padding: 0;
+    flex: 0 1 0;
+    height: fit-content;
+    width: fit-content;
+    font-size: 4vw;
+}
+
+/* Pre/Post Game Overlay */
+#overlay {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(53, 56, 75, 0.8);
+    opacity: 0;
+    pointer-events: none;
+    
+}
+
+#overlay h1 {
+    color: var(--color-3);
+    font-size: 4em;
+}
+
+#overlay button {
+    width: fit-content;
+    height: fit-content;
+    padding: 1vw 3vw;
+
+    border: 5px solid var(--color-3);
+    border-radius: 20px;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--color-3);
+    background-color: var(--color-2);
+    font-size: 5vh;
+}
+
+/* Selection Zone */
+
+.selection-zone {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-1);
+    height: 100%;
+    min-width: 10vw;
+    width: fit-content;
+    margin: 0;
+    padding: 4vw;
+    gap: 3vh;
+    min-height: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.selection-zone img.card {
+    flex: 1 0 0;
+    padding: 1vw 1vw 1vw 0;
+}
+
+/* Play Zone */
+
+.play-zone {
+    flex: 5 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7vmin;
+}
+
+.play-zone img {
+    background-color: #5E6070;
+    flex: 0 1 auto;
+}
+
+.play-zone figcaption {
+    color: var(--color-3);
+    text-align: center;
+}

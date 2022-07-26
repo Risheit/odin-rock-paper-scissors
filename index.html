@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="rps.js"></script>
+    <script src="rps.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    
+    <div id="overlay">
+        <h1>Text Here!</h1>
+        <button>Replay</button>
+    </div>
+
+    <div class="selection-zone">
+        <img id="rock" class="card" tabindex="0" src="images/rock.svg" alt="A closed fist, playing rock in rock-paper-scissors.">
+        <img id="paper" class="card" tabindex="0" src="images/paper.svg" alt="An open palm, playing paper in rock-paper-scissors">
+        <img id="scissors" class="card" tabindex="0" src="images/scissors.svg" alt="A hand making a sideways V-shape, playing scissors 
+        in rock-paper-scissors">
+    </div>
+    <div class="play-zone">
+        <figure>
+            <img class="player card" src="images/card_background.svg" alt="the back of a card">
+            <figcaption id="player-wins">Player: 0</figcaptionc>
+        </figure>
+        <figure>
+            <figcaption id="computer-wins">Computer: 0</figcaption>
+            <img class="computer card" src="images/card_background.svg" alt="the back of a card">
+        </figure>
+    </div>
 </body>
+
 </html>
