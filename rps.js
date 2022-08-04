@@ -23,7 +23,8 @@ document.querySelector("#overlay > button:first-of-type")
 
 
 function runRound(choice) {
-    updateDisplay(playRound(choice, getComputerChoice()));
+    const computerChoice = getComputerChoice()
+    updateDisplay(playRound(choice, computerChoice), choice, computerChoice);
 
     if (getPoints(document.querySelector("#player-wins").textContent) >= 5)
         displayOverlay("Player Wins!");
@@ -32,7 +33,7 @@ function runRound(choice) {
         displayOverlay("Bot Wins!");
 }
 
-function updateDisplay(outcome) {
+function updateDisplay(outcome, playerChoice, computerChoice) {
     const playerWins = document.querySelector("#player-wins");
     const computerWins = document.querySelector("#computer-wins");
 
@@ -44,11 +45,31 @@ function updateDisplay(outcome) {
             computerWins.textContent =
                 getUpdatedStatusString(computerWins.textContent);
             break;
+        
         case OUTCOMES.win:
             playerWins.textContent =
                 getUpdatedStatusString(playerWins.textContent);
             break;
     }
+
+    changeCardImage(document.querySelector(".player.card"), playerChoice);
+    changeCardImage(document.querySelector(".computer.card"), computerChoice);
+}
+
+function changeCardImage(currentImage, playable) {
+    switch (playable) {
+        case PLAYABLES.paper:
+            currentImage.src = "images/paper.svg";
+            break;
+        
+        case PLAYABLES.rock:
+            currentImage.src = "images/rock.svg";
+            break;
+        
+        case PLAYABLES.scissors:
+            currentImage.src = "images/scissors.svg";
+            break;
+        }
 }
 
 function displayOverlay(text) {
