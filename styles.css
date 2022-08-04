@@ -114,8 +114,8 @@ img.card {
 }
 
 .play-zone img {
-    background-color: #5E6070;
     flex: 0 1 auto;
+    /* padding: 0; */
 }
 
 .play-zone figcaption {
