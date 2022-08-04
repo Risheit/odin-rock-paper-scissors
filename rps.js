@@ -10,6 +10,65 @@ const OUTCOMES = {
     win: "Won"
 }
 
+
+document.querySelector("#rock")
+    .addEventListener("click", () => runRound(PLAYABLES.rock));
+document.querySelector("#paper")
+    .addEventListener("click", () => runRound(PLAYABLES.paper));
+document.querySelector("#scissors")
+    .addEventListener("click", () => runRound(PLAYABLES.scissors));
+
+document.querySelector("#overlay > button:first-of-type")
+    .addEventListener("click", reset);
+
+
+function runRound(choice) {
+    updateDisplay(playRound(choice, getComputerChoice()));
+
+    if (getPoints(document.querySelector("#player-wins").textContent) >= 5)
+        displayOverlay("Player Wins!");
+    else if (getPoints(document.querySelector("#computer-wins").textContent)
+        >= 5)
+        displayOverlay("Bot Wins!");
+}
+
+function updateDisplay(outcome) {
+    const playerWins = document.querySelector("#player-wins");
+    const computerWins = document.querySelector("#computer-wins");
+
+    computerWins.textContent = computerWins.textContent.trimEnd();
+    playerWins.textContent = playerWins.textContent.trimEnd();
+
+    switch (outcome) {
+        case OUTCOMES.lose:
+            computerWins.textContent =
+                getUpdatedStatusString(computerWins.textContent);
+            break;
+        case OUTCOMES.win:
+            playerWins.textContent =
+                getUpdatedStatusString(playerWins.textContent);
+            break;
+    }
+}
+
+function displayOverlay(text) {
+    const overlay = document.querySelector("#overlay");
+    const winText = document.querySelector("#overlay > h1:first-of-type");
+
+    winText.textContent = text;
+    overlay.style.opacity = 1;
+    overlay.style.pointerEvents = "all";
+}
+
+function reset() {
+    document.querySelector("#player-wins").textContent = "Player: 0";
+    document.querySelector("#computer-wins").textContent = "Computer: 0";
+
+    const overlay = document.querySelector("#overlay");
+    overlay.style.opacity = 0;
+    overlay.style.pointerEvents = "none";
+}
+
 function isTie(playerSelection, computerSelection) {
     return playerSelection.toUpperCase() === computerSelection.toUpperCase();
 }
@@ -62,18 +121,6 @@ function getPlayerChoice() {
     return choice;
 }
 
-// function game() {
-//     let playerWins = 0, computerWins = 0;
-
-//     while (playerWins < 5 && computerWins < 5) {
-//         let playerSelection = getPlayerChoice();
-//         let computerSelection = getComputerChoice();
-//         console.log(getVictoryString(
-//             playRound(playerSelection, computerSelection)
-//         ));
-//     }
-// }
-
 function getPoints(status) {
     return parseInt(status.slice(-1));
 }
@@ -85,60 +132,3 @@ function getUpdatedStatusString(status) {
 
     return status.slice(0, status.length - 1) + value.toString();
 }
-
-function updateDisplay(outcome) {
-    const playerWins = document.querySelector("#player-wins");
-    const computerWins = document.querySelector("#computer-wins");
-
-    computerWins.textContent = computerWins.textContent.trimEnd();
-    playerWins.textContent = playerWins.textContent.trimEnd();
-
-    switch (outcome) {
-        case OUTCOMES.lose:
-            computerWins.textContent =
-                getUpdatedStatusString(computerWins.textContent);
-            break;
-        case OUTCOMES.win:
-            playerWins.textContent =
-                getUpdatedStatusString(playerWins.textContent);
-            break;
-    }
-}
-
-function displayOverlay(text) {
-    const overlay = document.querySelector("#overlay");
-    const winText = document.querySelector("#overlay > h1:first-of-type");
-
-    winText.textContent = text;
-    overlay.style.opacity = 1;
-    overlay.style.pointerEvents = "all";
-}
-
-function runRound(choice) {
-    updateDisplay(playRound(choice, getComputerChoice()));
-
-    if (getPoints(document.querySelector("#player-wins").textContent) >= 5)
-        displayOverlay("Player Wins!");
-    else if (getPoints(document.querySelector("#computer-wins").textContent)
-        >= 5)
-        displayOverlay("Bot Wins!");
-}
-
-function reset() {
-    document.querySelector("#player-wins").textContent = "Player: 0";
-    document.querySelector("#computer-wins").textContent = "Computer: 0";
-
-    const overlay = document.querySelector("#overlay");
-    overlay.style.opacity = 0;
-    overlay.style.pointerEvents = "none";
-}
-
-document.querySelector("#rock")
-    .addEventListener("click", () => runRound(PLAYABLES.rock));
-document.querySelector("#paper")
-    .addEventListener("click", () => runRound(PLAYABLES.paper));
-document.querySelector("#scissors")
-    .addEventListener("click", () => runRound(PLAYABLES.scissors));
-
-document.querySelector("#overlay > button:first-of-type")
-    .addEventListener("click", reset);
